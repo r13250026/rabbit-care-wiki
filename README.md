@@ -2,7 +2,7 @@
 
 給第一次養兔的人的繁體中文照護知識庫，內容整理自《兔飼養與照顧指南》。
 
-🌐 **線上瀏覽網址**：https://r13250026.github.io/bunny-care-wiki/
+🌐 **線上瀏覽網址**：[https://r13250026.github.io/rabbit-care-wiki/](https://r13250026.github.io/rabbit-care-wiki/)
 
 ## ✨ 專案特色
 
