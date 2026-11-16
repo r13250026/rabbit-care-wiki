@@ -2,7 +2,7 @@
 
 給第一次養兔的人的繁體中文照護知識庫，內容整理自《兔飼養與照顧指南》。
 
-🌐 **線上瀏覽網址**：`[https://你的帳號.github.io/bunny-care-wiki/](https://r13250026.github.io/rabbit-care-wiki/)`
+🌐 **線上瀏覽網址**：`[https://r13250026.github.io/bunny-care-wiki/](https://r13250026.github.io/rabbit-care-wiki/)`
 
 ---
 
@@ -54,7 +54,7 @@ AI 將會自動執行以下標準化流程：
 由於本專案為純靜態網頁，無需安裝任何套件：
 1. 將專案 Clone 或下載至本地端：
    ```bash
-   git clone https://github.com/你的帳號/bunny-care-wiki.git
+   git clone https://github.com/r13250026/bunny-care-wiki.git
    ```
 2. 直接用瀏覽器開啟 `index.html`，或使用 VS Code 的 **Live Server** 擴充套件即可在瀏覽器預覽完整網站。
 
