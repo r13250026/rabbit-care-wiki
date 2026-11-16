@@ -1,0 +1,457 @@
+:root {
+  /* 保留原有的牧草燕麥色系，並擴充手帳風輔助色 */
+  --bg-color: #faf8f5;         /* 溫暖燕麥白 */
+  --paper-bg: #fffdf8;         /* 手帳紙張白 */
+  --dot-color: #e4ded2;        /* 筆記本點點色 */
+  --text-main: #2d3748;        /* 深炭灰文字 */
+  --text-muted: #5f6d76;       /* 次要說明文字 */
+  --primary-color: #4a7c59;    /* 主色：天然牧草綠 */
+  --primary-soft: #e3f0e7;     /* 淺牧草綠 */
+  --forest-dark: #284b36;      /* 深森林綠（用於手繪邊框與陰影） */
+  --carrot-soft: #f6d5c3;      /* 粉橘紅蘿蔔色（紙膠帶與點綴） */
+  --hay-yellow: #f5e6a8;       /* 乾草暖黃（螢光筆底線與按鈕） */
+  --alert-bg: #fff5f5;         /* 警語紅底 */
+  --alert-border: #e53e3e;     /* 警語紅框 */
+  --alert-text: #9b2c2c;       /* 警語深紅字 */
+  --round: "Chiron GoRound TC", "Noto Sans TC", sans-serif;
+  --body: "Noto Sans TC", "Chiron GoRound TC", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--body);
+  color: var(--text-main);
+  min-height: 100vh;
+  /* 點點筆記本背景 */
+  background: radial-gradient(circle, var(--dot-color) 1.5px, transparent 1.6px) 0 0 / 26px 26px, var(--bg-color);
+  line-height: 1.75;
+}
+
+.wrap {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* 內頁專用較窄閱讀容器 */
+.container {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 2rem 24px;
+}
+
+/* Header & Brand */
+header {
+  padding: 48px 0 16px;
+  position: relative;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.brand-icon {
+  width: 52px;
+  height: 52px;
+  background: var(--primary-soft);
+  border: 3px solid var(--forest-dark);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  box-shadow: 3px 3px 0 rgba(40, 75, 54, 0.16);
+}
+
+.brand .txt b {
+  display: block;
+  font-family: var(--round);
+  font-weight: 800;
+  color: var(--forest-dark);
+  font-size: 21px;
+  line-height: 1.2;
+}
+
+.brand .txt span {
+  font-family: var(--round);
+  font-weight: 700;
+  color: var(--primary-color);
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}
+
+/* Hero Section */
+.hero {
+  margin-top: 28px;
+  display: grid;
+  grid-template-columns: 1fr 220px;
+  gap: 20px;
+  align-items: center;
+}
+
+.hero h1 {
+  font-family: var(--round);
+  font-weight: 800;
+  color: var(--forest-dark);
+  font-size: 42px;
+  line-height: 1.28;
+}
+
+.hero h1 .u {
+  background: linear-gradient(transparent 58%, var(--hay-yellow) 58%);
+  padding: 0 6px;
+}
+
+.hero p {
+  margin-top: 14px;
+  font-size: 17px;
+  color: var(--text-muted);
+  max-width: 580px;
+}
+
+.hero .mascot {
+  justify-self: center;
+}
+
+.mascot-card {
+  background: var(--paper-bg);
+  border: 3px solid var(--forest-dark);
+  border-radius: 24px;
+  padding: 20px 22px;
+  text-align: center;
+  box-shadow: 6px 6px 0 rgba(40, 75, 54, 0.14);
+  transform: rotate(3deg);
+}
+
+.mascot-emoji {
+  display: block;
+  font-size: 48px;
+  line-height: 1.2;
+  margin-bottom: 6px;
+}
+
+.mascot-label {
+  display: inline-block;
+  font-family: var(--round);
+  font-weight: 800;
+  font-size: 13px;
+  color: var(--forest-dark);
+  background: var(--hay-yellow);
+  padding: 3px 10px;
+  border-radius: 999px;
+  border: 2px solid var(--forest-dark);
+}
+
+/* Section Title */
+.sec {
+  margin-top: 40px;
+}
+
+.sec h2 {
+  font-family: var(--round);
+  font-weight: 800;
+  color: var(--forest-dark);
+  font-size: 26px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sec h2 .star {
+  color: var(--primary-color);
+}
+
+.hand {
+  width: 110px;
+  height: 8px;
+  margin: 10px 0 28px;
+  background: radial-gradient(circle, var(--carrot-soft) 45%, transparent 46%) 0 0 / 16px 8px repeat-x;
+}
+
+/* Lesson / Guide Cards Grid (2x2 雙欄排版) */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 26px;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--paper-bg);
+  border: 3px solid var(--forest-dark);
+  border-radius: 22px;
+  padding: 26px 24px 22px;
+  box-shadow: 6px 6px 0 rgba(40, 75, 54, 0.14);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 9px 9px 0 rgba(40, 75, 54, 0.18);
+}
+
+/* 紙膠帶裝飾 */
+.card .tape {
+  position: absolute;
+  top:-13px;
+  left: 26px;
+  width: 96px;
+  height: 26px;
+  background: var(--primary-soft);
+  border: 1.5px solid rgba(40, 75, 54, 0.25);
+  opacity: 0.9;
+  border-radius: 3px;
+  transform: rotate(-4deg);
+}
+
+.card:nth-child(2n) .tape {
+  background: var(--carrot-soft);
+  transform: rotate(3deg);
+}
+
+.card .no {
+  align-self: flex-start;
+  font-family: var(--round);
+  font-weight: 800;
+  color: #fff;
+  background: var(--primary-color);
+  padding: 4px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  margin-bottom: 14px;
+}
+
+.card h3 {
+  font-family: var(--round);
+  font-weight: 800;
+  color: var(--forest-dark);
+  font-size: 22px;
+  margin-bottom: 8px;
+}
+
+.card p {
+  color: var(--text-muted);
+  font-size: 15px;
+  line-height: 1.65;
+  flex: 1;
+}
+
+.card .tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 14px 0 18px;
+}
+
+.card .tag {
+  background: var(--primary-soft);
+  border: 2px solid var(--forest-dark);
+  color: var(--forest-dark);
+  font-family: var(--round);
+  font-weight: 700;
+  font-size: 12.5px;
+  padding: 4px 11px;
+  border-radius: 999px;
+}
+
+.card .go {
+  align-self: flex-start;
+  font-family: var(--round);
+  font-weight: 800;
+  color: var(--forest-dark);
+  font-size: 15px;
+  background: var(--hay-yellow);
+  border: 3px solid var(--forest-dark);
+  border-radius: 12px;
+  padding: 7px 18px;
+  box-shadow: 3px 3px 0 rgba(40, 75, 54, 0.14);
+}
+
+/* Alert Box (首頁與內頁共用) */
+.alert-box {
+  background-color: var(--alert-bg);
+  border: 2.5px solid var(--alert-border);
+  border-left-width: 7px;
+  color: var(--alert-text);
+  padding: 1rem 1.25rem;
+  border-radius: 14px;
+  margin: 1.5rem 0;
+  box-shadow: 4px 4px 0 rgba(229, 62, 62, 0.12);
+}
+
+.alert-box strong {
+  display: block;
+  font-family: var(--round);
+  margin-bottom: 0.3rem;
+  font-size: 1.05rem;
+}
+
+/* Info Box (內頁用) */
+.info-box {
+  background-color: var(--primary-soft);
+  border: 2.5px solid var(--forest-dark);
+  border-left-width: 7px;
+  padding: 1rem 1.25rem;
+  border-radius: 14px;
+  margin: 1.5rem 0;
+}
+
+/* 內頁文章樣式 (guides/*.html 沿用同一套手帳風) */
+.back-link {
+  display: inline-block;
+  font-family: var(--round);
+  font-weight: 800;
+  color: var(--forest-dark);
+  background: var(--hay-yellow);
+  border: 2.5px solid var(--forest-dark);
+  padding: 6px 16px;
+  border-radius: 12px;
+  text-decoration: none;
+  box-shadow: 3px 3px 0 rgba(40, 75, 54, 0.14);
+}
+
+.back-link:hover {
+  transform: translate(-1px, -1px);
+}
+
+.guide-article {
+  background: var(--paper-bg);
+  padding: 2.25rem;
+  border-radius: 22px;
+  border: 3px solid var(--forest-dark);
+  box-shadow: 6px 6px 0 rgba(40, 75, 54, 0.14);
+}
+
+.article-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 2px dashed var(--dot-color);
+}
+
+.card-badge {
+  display: inline-block;
+  font-family: var(--round);
+  font-weight: 800;
+  color: #fff;
+  background: var(--primary-color);
+  padding: 4px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+.article-header h1 {
+  font-family: var(--round);
+  font-size: 1.95rem;
+  color: var(--forest-dark);
+  margin: 0.35rem 0 0.6rem;
+}
+
+.lead {
+  color: var(--text-muted);
+  font-size: 1.02rem;
+}
+
+.guide-article h2 {
+  font-family: var(--round);
+  font-size: 1.4rem;
+  color: var(--forest-dark);
+  margin: 2.25rem 0 1rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 3px solid var(--primary-soft);
+}
+
+.guide-article h3 {
+  font-family: var(--round);
+  font-size: 1.15rem;
+  margin: 1.5rem 0 0.6rem;
+  color: var(--primary-color);
+}
+
+.guide-article p {
+  margin-bottom: 1rem;
+}
+
+.guide-article ul, .step-list {
+  margin: 0.75rem 0 1.25rem 1.5rem;
+}
+
+.guide-article li {
+  margin-bottom: 0.5rem;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.25rem 0 1.75rem;
+  font-size: 0.95rem;
+  border: 2.5px solid var(--forest-dark);
+}
+
+.data-table th, .data-table td {
+  border: 1.5px solid var(--forest-dark);
+  padding: 0.85rem 1rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.data-table th {
+  background-color: var(--primary-soft);
+  color: var(--forest-dark);
+  font-family: var(--round);
+  font-weight: 800;
+  width: 26%;
+}
+
+.data-table tr:nth-child(even) {
+  background-color: #f9f7f2;
+}
+
+/* Footer */
+footer {
+  margin: 56px 0 40px;
+  padding-top: 24px;
+  border-top: 2px dashed #cfc6b4;
+  color: var(--text-muted);
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+@media (max-width: 640px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+  .hero .mascot {
+    display: none;
+  }
+  .hero h1 {
+    font-size: 32px;
+  }
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  header {
+    padding-top: 32px;
+  }
+  .guide-article {
+    padding: 1.5rem 1.15rem;
+  }
+}
