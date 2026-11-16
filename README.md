@@ -1,64 +1,65 @@
-# BunnyCare
+# 🐰 兔飼養與照顧知識庫 Rabbit Care Wiki
 
 給第一次養兔的人的繁體中文照護知識庫，內容整理自《兔飼養與照顧指南》。
 
-**網站：** https://r13250026.github.io/rabbit-care-wiki/
+🌐 **線上瀏覽網址**：`[https://你的帳號.github.io/bunny-care-wiki/](https://r13250026.github.io/rabbit-care-wiki/)`
 
-## 內容
+---
 
-網站分成四個章節，每章一個獨立頁面：
+## ✨ 專案特色
 
-| 章節 | 頁面 | 重點 |
-| --- | --- | --- |
-| 一、認識兔子的基本習性 | `guides/basic-habits.html` | 生命週期、繁殖、換毛、磨牙、常見行為 |
-| 二、適合兔子生活的環境 | `guides/living-environment.html` | 籠舍、溫度、飲水、每日飲食比例、環境豐富化 |
-| 三、與兔子相處的技巧 | `guides/interaction-tips.html` | 單隻與多隻飼養、初次配對、正確抓抱 |
-| 四、基本照護與醫療 | `guides/health-care.html` | 梳毛剃毛、日常觀察、異常徵狀、就醫須知 |
+* **系統化照護指南**：將繁雜的養兔知識拆解為四大核心主題，涵蓋從奶兔到老兔的完整生命週期、飲食黃金比例、居家環境安全與緊急醫療警訊。
+* **語意化安全提醒設計**：針對攸關兔子健康的紅線規範（如 12 小時未進食急診警訊、飲食禁忌、禁止仰躺抱姿等），統一使用高辨識度的紅框警語元件呈現。
+* **零依賴快速部署**：純原生 HTML5 + CSS3 開發，無需任何前端打包工具（如 Vite/Webpack）或後端資料庫，直接透過 GitHub Pages 即可託管上線。
+* **AI 驅動的可擴充架構**：內建完整的 [`AGENTS.md`](./AGENTS.md) 開發規範，定義了檔案命名、HTML 元件骨架與雙向連動流程，讓 AI 能隨時依照同一套設計語言新增章節。
 
-## 技術與風格
+---
 
-- 純原生 HTML5 + CSS3，沒有框架、打包工具或建置步驟。
-- 視覺風格為「牧草燕麥手帳風」：點點筆記本底紋、深森林綠手繪邊框、硬陰影與紙膠帶裝飾。
-- 字體使用 Google Fonts 的 Chiron GoRound TC（標題）與 Noto Sans TC（內文）。
-- 支援桌面與手機瀏覽，手機版（寬度 640px 以下）首頁卡片自動轉為單欄。
+## 📂 專案結構
 
-## 專案結構
-
-```
-.
-├── AGENTS.md          專案規則：AI 新增或修改內容時必須遵守
-├── README.md          本文件
-├── index.html         首頁
-├── style.css          全站唯一樣式表
+```text
+bunny-care-wiki/
+├── AGENTS.md                        # 核心開發規範：供 AI 理解專案架構與新增內容的規則書
+├── README.md                        # 專案說明文件
+├── index.html                       # 首頁：品牌標頭、導讀、核心警語、章節卡片網格
+├── style.css                        # 全站統一樣式表
 ├── content/
-│   └── source.md      原始指南全文（內容事實的唯一依據）
-└── guides/            單篇照護指南
+│   └── source.md                    #《兔飼養與照顧指南》原文
+└── guides/                          # 單篇照護指南頁面目錄
+    ├── basic-habits.html            # 第一章：認識兔子的基本習性
+    ├── living-environment.html      # 第二章：適合兔子生活的環境
+    ├── interaction-tips.html        # 第三章：與兔子相處的技巧
+    └── health-care.html             # 第四章：基本照護與醫療
 ```
 
-## 本機預覽
+---
 
-不需要安裝任何東西，直接用瀏覽器開啟 `index.html` 即可。
+## 🤖 如何使用 `AGENTS.md` 擴充新頁面？
 
-## 新增一篇指南
+本專案的核心設計在於「可持續擴充性」。未來若要新增新的主題頁面（例如「第五章：常見兔病百科」或「牧草種類營養比較」），只需對支援讀取專案檔案的 AI 工具（如 Claude Code、Cursor、GitHub Copilot 或 ChatGPT/Gemini）下達如下指令：
 
-完整規則與檢查清單都寫在 [AGENTS.md](./AGENTS.md)，大致流程如下：
+> **Prompt 範例：**
+> 「請閱讀 `AGENTS.md`，嚴格遵守裡面的視覺元件與工作流程規範，幫我根據以下資料新增一篇『第五章：常見兔病百科』（檔名 `guides/common-diseases.html`），並同步更新 `index.html`。」
 
-1. 先確認 `content/` 裡有該主題的來源資料。
-2. 在 `guides/` 以英文小寫加連字號命名，建立新的 `.html` 檔案，套用既有的頁面骨架與元件。
-3. 到 `index.html` 的 `#guide-grid` 新增對應的卡片。
-4. 更新 `AGENTS.md` 的檔案結構，並逐項檢查完成前清單。
+AI 將會自動執行以下標準化流程：
+1. 在 `guides/` 下建立符合 kebab-case 命名的 HTML 檔案，並引入 `Chiron GoRound TC` 字體與 `../style.css`。
+2. 自動將資料中的注意事項與表格映射為標準的 `.alert-box`、`.data-table` 與 `.step-list` 元件。
+3. 同步開啟 `index.html`，在 `#guide-grid` 中插入一張結構一致的手帳風卡片（偶數張卡片會自動套用粉橘紅蘿蔔色紙膠帶）。
+4. 嚴格遵守「樣式保護原則」，不改動既有的 `style.css`，確保全站風格高度統一。
 
-如果使用 AI 協助，請先讓它閱讀 `AGENTS.md`，再提出需求，例如：「請依照 AGENTS.md，新增一篇『夏季防中暑』指南。」
+---
 
-## 部署到 GitHub Pages
+## 🚀 本地預覽方式
 
-1. 把專案推送到 GitHub 的 `main` 分支。
-2. 進入 repository 的 **Settings → Pages**。
-3. **Source** 選擇 `Deploy from a branch`，**Branch** 選擇 `main`，資料夾選 `/ (root)`，按下 Save。
-4. 等待約 1 到 2 分鐘，頁面上方會顯示網站網址。
+由於本專案為純靜態網頁，無需安裝任何套件：
+1. 將專案 Clone 或下載至本地端：
+   ```bash
+   git clone https://github.com/你的帳號/bunny-care-wiki.git
+   ```
+2. 直接用瀏覽器開啟 `index.html`，或使用 VS Code 的 **Live Server** 擴充套件即可在瀏覽器預覽完整網站。
 
-專案所有連結都使用相對路徑，因此部署在子路徑下也能正常顯示。
+---
 
-## 內容來源與免責聲明
+## 📄 內容參考與授權
 
-網站內容整理自《兔飼養與照顧指南》，原文收錄於 [`content/source.md`](./content/source.md)。本站為學習與整理用途，不能取代專業獸醫師的診斷。兔子出現食慾下降、排便減少或其他異常時，請儘速就醫。
+網站內容整理自《兔飼養與照顧指南》，原文收錄於 [`content/source.md`](./content/source.md)。本站為課程專題實作與學習整理，不能取代專業獸醫師的診斷。兔子出現食慾下降、排便減少或其他異常時，請儘速就醫。
